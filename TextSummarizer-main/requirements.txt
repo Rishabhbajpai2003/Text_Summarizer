@@ -1,0 +1,22 @@
+transformers>=4.0.0
+transformers[sentencepiece]>=4.0.0
+datasets>=1.0.0
+sacrebleu>=2.0.0
+rouge_score>=0.0.4
+py7zr>=0.17.0
+pandas>=1.0.0
+nltk>=3.5
+tqdm>=4.0.0
+pyYAML>=5.3.1
+matplotlib>=3.2.0
+torch>=1.7.0
+notebook>=6.0.0
+boto3>=1.14.0
+mypy-boto3-s3>=1.17.0
+python-box>=6.0.0
+ensure>=1.0.0
+fastapi>=0.65.0
+uvicorn>=0.13.0
+JINJA2>=2.11.0
+
+-e .
