@@ -1,0 +1,217 @@
+[2025-11-21 07:14:41,753: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-11-21 07:14:41,755: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:14:41,759: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:14:41,759: INFO: common: created directory at: artifacts]
+[2025-11-21 07:14:41,759: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-21 07:14:43,793: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 7903594
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "dbc016a060da18070593b83afff580c9b300f0b6ea4147a7988433e04df246ca"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: CF32:2280DD:B4A31:1638C1:69201162
+Accept-Ranges: bytes
+Date: Fri, 21 Nov 2025 07:14:43 GMT
+Via: 1.1 varnish
+X-Served-By: cache-kul9826-KUL
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1763709283.709725,VS0,VE724
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 70c92b7cd3618ddb41533e9d3e27a79591983320
+Expires: Fri, 21 Nov 2025 07:19:43 GMT
+Source-Age: 0
+
+]
+[2025-11-21 07:14:43,913: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:14:43,913: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2025-11-21 07:14:43,916: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:14:43,917: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:14:43,918: INFO: common: created directory at: artifacts]
+[2025-11-21 07:14:43,918: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-21 07:14:43,919: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:14:43,919: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-21 07:14:43,923: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:14:43,924: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:14:43,925: INFO: common: created directory at: artifacts]
+[2025-11-21 07:14:43,925: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-21 07:14:46,246: ERROR: main: 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+]
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1640, in extract_vocab_merges_from_model
+    from tiktoken.load import load_tiktoken_bpe
+ModuleNotFoundError: No module named 'tiktoken'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1783, in convert_slow_tokenizer
+    ).converted()
+      ^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1677, in converted
+    tokenizer = self.tokenizer()
+                ^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1670, in tokenizer
+    vocab_scores, merges = self.extract_vocab_merges_from_model(self.vocab_file)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1642, in extract_vocab_merges_from_model
+    raise ValueError(
+ValueError: `tiktoken` is required to read a `tiktoken` file. Install it with `pip install tiktoken`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2343, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/models/pegasus/tokenization_pegasus_fast.py", line 136, in __init__
+    super().__init__(
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/tokenization_utils_fast.py", line 139, in __init__
+    fast_tokenizer = convert_slow_tokenizer(self, from_tiktoken=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/convert_slow_tokenizer.py", line 1785, in convert_slow_tokenizer
+    raise ValueError(
+ValueError: Converting from SentencePiece and Tiktoken failed, if a converter for SentencePiece is available, provide a model path with a SentencePiece tokenizer.model file.Currently available slow->fast converters: ['AlbertTokenizer', 'BartTokenizer', 'BarthezTokenizer', 'BertTokenizer', 'BigBirdTokenizer', 'BlenderbotTokenizer', 'CamembertTokenizer', 'CLIPTokenizer', 'CodeGenTokenizer', 'ConvBertTokenizer', 'DebertaTokenizer', 'DebertaV2Tokenizer', 'DistilBertTokenizer', 'DPRReaderTokenizer', 'DPRQuestionEncoderTokenizer', 'DPRContextEncoderTokenizer', 'ElectraTokenizer', 'FNetTokenizer', 'FunnelTokenizer', 'GPT2Tokenizer', 'HerbertTokenizer', 'LayoutLMTokenizer', 'LayoutLMv2Tokenizer', 'LayoutLMv3Tokenizer', 'LayoutXLMTokenizer', 'LongformerTokenizer', 'LEDTokenizer', 'LxmertTokenizer', 'MarkupLMTokenizer', 'MBartTokenizer', 'MBart50Tokenizer', 'MPNetTokenizer', 'MobileBertTokenizer', 'MvpTokenizer', 'NllbTokenizer', 'OpenAIGPTTokenizer', 'PegasusTokenizer', 'Qwen2Tokenizer', 'RealmTokenizer', 'ReformerTokenizer', 'RemBertTokenizer', 'RetriBertTokenizer', 'RobertaTokenizer', 'RoFormerTokenizer', 'SeamlessM4TTokenizer', 'SqueezeBertTokenizer', 'T5Tokenizer', 'UdopTokenizer', 'WhisperTokenizer', 'XLMRobertaTokenizer', 'XLNetTokenizer', 'SplinterTokenizer', 'XGLMTokenizer', 'LlamaTokenizer', 'CodeLlamaTokenizer', 'GemmaTokenizer', 'Phi3Tokenizer']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/main.py", line 38, in <module>
+    data_transformation.main()
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/pipeline/stage_03_data_transformation.py", line 13, in main
+    data_transformation = DataTransformation(config=data_transformation_config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/components/data_transformation.py", line 12, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(config.tokenizer_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1159, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2097, in from_pretrained
+    return cls._from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 2344, in _from_pretrained
+    except import_protobuf_decode_error():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+[2025-11-21 07:15:10,805: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-11-21 07:15:10,808: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:15:10,809: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:15:10,809: INFO: common: created directory at: artifacts]
+[2025-11-21 07:15:10,809: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-21 07:15:10,810: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-21 07:15:10,953: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:15:10,954: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2025-11-21 07:15:10,956: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:15:10,957: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:15:10,957: INFO: common: created directory at: artifacts]
+[2025-11-21 07:15:10,957: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-21 07:15:10,958: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:15:10,958: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-21 07:15:10,961: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:15:10,963: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:15:10,963: INFO: common: created directory at: artifacts]
+[2025-11-21 07:15:10,963: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-21 07:15:18,689: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:15:18,690: INFO: main: *******************]
+[2025-11-21 07:15:18,690: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2025-11-21 07:15:18,692: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:15:18,693: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:15:18,693: INFO: common: created directory at: artifacts]
+[2025-11-21 07:15:18,694: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-21 07:17:01,266: ERROR: main: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy']
+Traceback (most recent call last):
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/pipeline/stage_04_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/components/model_trainer.py", line 34, in train
+    trainer_args = TrainingArguments(
+                   ^^^^^^^^^^^^^^^^^^
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+[2025-11-21 07:17:45,232: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-11-21 07:17:45,235: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:17:45,237: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:17:45,237: INFO: common: created directory at: artifacts]
+[2025-11-21 07:17:45,237: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-11-21 07:17:45,237: INFO: data_ingestion: File already exists of size: ~ 7718 KB]
+[2025-11-21 07:17:45,405: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:17:45,405: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2025-11-21 07:17:45,408: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:17:45,409: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:17:45,409: INFO: common: created directory at: artifacts]
+[2025-11-21 07:17:45,409: INFO: common: created directory at: artifacts/data_validation]
+[2025-11-21 07:17:45,410: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:17:45,410: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-21 07:17:45,413: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:17:45,414: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:17:45,415: INFO: common: created directory at: artifacts]
+[2025-11-21 07:17:45,415: INFO: common: created directory at: artifacts/data_transformation]
+[2025-11-21 07:17:47,825: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-21 07:17:47,826: INFO: main: *******************]
+[2025-11-21 07:17:47,826: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2025-11-21 07:17:47,828: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-21 07:17:47,830: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-21 07:17:47,830: INFO: common: created directory at: artifacts]
+[2025-11-21 07:17:47,830: INFO: common: created directory at: artifacts/model_trainer]
+[2025-11-21 07:18:06,548: ERROR: main: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`]
+Traceback (most recent call last):
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/components/model_trainer.py", line 35, in train
+    trainer_args = TrainingArguments(
+                   ^^^^^^^^^^^^^^^^^^
+TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/main.py", line 51, in <module>
+    model_trainer.main()
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/pipeline/stage_04_trainer.py", line 14, in main
+    model_trainer_config.train()
+  File "/workspaces/Text_Summarizer/TextSummarizer-main/src/textSummarizer/components/model_trainer.py", line 44, in train
+    trainer_args = TrainingArguments(
+                   ^^^^^^^^^^^^^^^^^^
+  File "<string>", line 135, in __init__
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/training_args.py", line 1811, in __post_init__
+    self.device
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/training_args.py", line 2355, in device
+    return self._setup_devices
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/functools.py", line 995, in __get__
+    val = self.func(instance)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/transformers/training_args.py", line 2225, in _setup_devices
+    raise ImportError(
+ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`
